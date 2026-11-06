@@ -246,6 +246,96 @@ h3 span {
 
 .roster li.scheme-issac {
   border-color: #3f3f46;
+  cursor: pointer;
+}
+
+.roster li.scheme-issac .portrait,
+.roster li.scheme-issac .story,
+.roster li.scheme-issac .close {
+  display: none;
+}
+
+.profile-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(2, 6, 23, 0.78);
+}
+
+body.profile-open {
+  overflow: hidden;
+}
+
+.roster li.scheme-issac.is-open,
+.roster li.scheme-issac.is-open:hover {
+  position: fixed;
+  z-index: 21;
+  inset: 6vh 5vw;
+  width: auto;
+  height: auto;
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(10rem, 18rem) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+  padding: 1.5rem;
+  overflow: auto;
+  background: #111827;
+  border-color: #e11d2e;
+  cursor: default;
+  animation: profile-grow 0.35s ease;
+}
+
+.roster li.scheme-issac.is-open .portrait,
+.roster li.scheme-issac.is-open .story,
+.roster li.scheme-issac.is-open .close {
+  display: block;
+}
+
+.roster li.scheme-issac.is-open .portrait {
+  width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  object-position: center top;
+  border-radius: 0.6rem;
+  background: #0b1020;
+}
+
+.roster li.scheme-issac.is-open .close {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  border: 1px solid #e11d2e;
+  border-radius: 999px;
+  background: #1f2937;
+  color: #fff;
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+}
+
+.roster li.scheme-issac.is-open .story {
+  margin-top: 0.85rem;
+}
+
+@keyframes profile-grow {
+  from {
+    transform: scale(0.45);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 560px) {
+  .roster li.scheme-issac.is-open,
+  .roster li.scheme-issac.is-open:hover {
+    grid-template-columns: 1fr;
+    inset: 4vh 4vw;
+  }
+
+  .roster li.scheme-issac.is-open .portrait {
+    max-height: 38vh;
+  }
 }
 
 .roster li.scheme-issac:hover {
@@ -309,6 +399,18 @@ h3 span {
 .roster li.scheme-rin:hover :is(h3, p, .colours li),
 .roster li.scheme-bel:hover :is(h3, p, .colours li) {
   color: #fff;
+}
+
+.roster li.scheme-issac.is-open:hover h3,
+.roster li.scheme-issac.is-open h3 {
+  color: #e2e8f0;
+}
+
+.roster li.scheme-issac.is-open:hover .profile-copy > p,
+.roster li.scheme-issac.is-open .profile-copy > p,
+.roster li.scheme-issac.is-open:hover .colours li,
+.roster li.scheme-issac.is-open .colours li {
+  color: #cbd5e1;
 }
 
 .roster li.scheme-juma:hover :is(h3, p, .colours li),
