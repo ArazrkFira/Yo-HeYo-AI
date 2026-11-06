@@ -1,0 +1,9 @@
+{
+  "name": "yo-heyo-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A small Hello World site served by a local Node server.",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
