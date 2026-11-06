@@ -4,52 +4,71 @@ if (title) {
   document.title = title.textContent;
 }
 
-const issac = document.querySelector(".scheme-issac");
+const profiles = document.querySelectorAll(".expandable");
 const backdrop = document.querySelector(".profile-backdrop");
+let openProfile = null;
 
-function openIssac() {
-  issac.classList.add("is-open");
-  issac.setAttribute("aria-expanded", "true");
+function openCard(card) {
+  if (openProfile && openProfile !== card) {
+    closeCard(openProfile, false);
+  }
+
+  card.classList.add("is-open");
+  card.setAttribute("aria-expanded", "true");
   backdrop.hidden = false;
   document.body.classList.add("profile-open");
+  openProfile = card;
 }
 
-function closeIssac() {
-  issac.classList.remove("is-open");
-  issac.setAttribute("aria-expanded", "false");
-  backdrop.hidden = true;
-  document.body.classList.remove("profile-open");
-  issac.focus();
+function closeCard(card, restoreFocus) {
+  card.classList.remove("is-open");
+  card.setAttribute("aria-expanded", "false");
+
+  if (openProfile === card) {
+    backdrop.hidden = true;
+    document.body.classList.remove("profile-open");
+    openProfile = null;
+  }
+
+  if (restoreFocus) {
+    card.focus();
+  }
 }
 
-if (issac && backdrop) {
-  issac.addEventListener("click", (event) => {
-    if (event.target.closest(".close")) {
-      closeIssac();
-      return;
-    }
+if (profiles.length && backdrop) {
+  profiles.forEach((card) => {
+    card.addEventListener("click", (event) => {
+      if (event.target.closest(".close")) {
+        closeCard(card, true);
+        return;
+      }
 
-    if (!issac.classList.contains("is-open")) {
-      openIssac();
-    }
+      if (!card.classList.contains("is-open")) {
+        openCard(card);
+      }
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (card.classList.contains("is-open")) {
+        return;
+      }
+
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openCard(card);
+      }
+    });
   });
 
-  issac.addEventListener("keydown", (event) => {
-    if (issac.classList.contains("is-open")) {
-      return;
-    }
-
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      openIssac();
+  backdrop.addEventListener("click", () => {
+    if (openProfile) {
+      closeCard(openProfile, true);
     }
   });
-
-  backdrop.addEventListener("click", closeIssac);
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && issac.classList.contains("is-open")) {
-      closeIssac();
+    if (event.key === "Escape" && openProfile) {
+      closeCard(openProfile, true);
     }
   });
 }
