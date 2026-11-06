@@ -1,6 +1,6 @@
 # Yo-HeYo-AI
 
-A small static site served by a local Node server. The page starts as Hello World.
+A small site for the game Yo He-Yo, served by a local Node server.
 
 ## Requirements
 

@@ -5,25 +5,622 @@
 body {
   margin: 0;
   min-height: 100vh;
-  display: grid;
-  place-items: center;
   font-family: "Segoe UI", system-ui, sans-serif;
-  background: #0f172a;
+  background: #0b1020;
   color: #e2e8f0;
 }
 
 main {
-  text-align: center;
-  padding: 2rem;
+  width: min(40rem, 100%);
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  color: #38bdf8;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 h1 {
-  margin: 0 0 0.5rem;
-  font-size: 3rem;
-  letter-spacing: -0.03em;
+  margin: 0 0 1rem;
+  font-size: 3.5rem;
+  letter-spacing: -0.04em;
 }
 
-p {
+.lead {
+  margin: 0 0 2rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #cbd5e1;
+}
+
+section {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #1e293b;
+}
+
+h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.25rem;
+}
+
+section p,
+.roster p {
   margin: 0;
+  line-height: 1.6;
   color: #94a3b8;
+}
+
+.roster {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.roster li {
+  padding: 1rem 1.1rem;
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 0.6rem;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+h3 span {
+  margin-left: 0.4rem;
+  color: #38bdf8;
+  font-weight: 500;
+}
+
+.role {
+  margin: 0.2rem 0 0.55rem;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.colours {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.9rem;
+  margin: 0.85rem 0 0;
+  padding: 0;
+}
+
+.colours li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+}
+
+.swatch {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.swatch-red {
+  background: #e11d2e;
+}
+
+.swatch-grey {
+  background: #3f3f46;
+}
+
+.swatch-white {
+  background: #f8fafc;
+}
+
+.swatch-gold {
+  background: #e2b33a;
+}
+
+.swatch-black {
+  background: #0a0a0a;
+}
+
+.swatch-indigo {
+  background: #2e1a6b;
+}
+
+.swatch-blue {
+  background: #2563eb;
+}
+
+.swatch-orange {
+  background: #f97316;
+}
+
+.swatch-light-grey {
+  background: #d4d4d8;
+}
+
+.swatch-purple {
+  background: #a855f7;
+}
+
+.swatch-yellow {
+  background: #facc15;
+}
+
+.swatch-green {
+  background: #22c55e;
+}
+
+.swatch-brown {
+  background: #8a5a32;
+}
+
+.swatch-beige {
+  background: #e7d3b0;
+}
+
+.swatch-turquoise {
+  background: #2dd4bf;
+}
+
+.swatch-bright-purple {
+  background: #c084fc;
+}
+
+.swatch-space-indigo {
+  background: #2e294e;
+}
+
+.swatch-pastel-petal {
+  background: #efbcd5;
+}
+
+.scheme-juma .accent-label {
+  margin: 0.7rem 0 0;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.colours.accents {
+  margin-top: 0.35rem;
+}
+
+.colours.accents .swatch {
+  width: 0.65rem;
+  height: 0.65rem;
+}
+
+.roster li.scheme-issac,
+.roster li.scheme-mikah,
+.roster li.scheme-joss,
+.roster li.scheme-juma,
+.roster li.scheme-luga,
+.roster li.scheme-decina,
+.roster li.scheme-rin,
+.roster li.scheme-ravia,
+.roster li.scheme-sukari,
+.roster li.scheme-remie,
+.roster li.scheme-bel {
+  position: relative;
+  overflow: hidden;
+  padding-top: 1.35rem;
+  transition: background-color 0.45s ease, border-color 0.45s ease;
+}
+
+.roster li[class*="scheme-"] :is(h3, h3 span, p, .colours li) {
+  transition: color 0.45s ease;
+}
+
+.roster li.scheme-issac::before,
+.roster li.scheme-mikah::before,
+.roster li.scheme-joss::before,
+.roster li.scheme-juma::before,
+.roster li.scheme-luga::before,
+.roster li.scheme-decina::before,
+.roster li.scheme-rin::before,
+.roster li.scheme-ravia::before,
+.roster li.scheme-sukari::before,
+.roster li.scheme-remie::before,
+.roster li.scheme-bel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+}
+
+.roster li.scheme-issac {
+  border-color: #3f3f46;
+}
+
+.roster li.scheme-issac:hover {
+  background-color: #e11d2e;
+  border-color: #e11d2e;
+}
+
+.roster li.scheme-mikah:hover {
+  background-color: #0a0a0a;
+  border-color: #0a0a0a;
+}
+
+.roster li.scheme-joss:hover {
+  background-color: #2563eb;
+  border-color: #2563eb;
+}
+
+.roster li.scheme-juma:hover {
+  background-color: #f97316;
+  border-color: #f97316;
+}
+
+.roster li.scheme-luga:hover {
+  background-color: #22c55e;
+  border-color: #22c55e;
+}
+
+.roster li.scheme-decina:hover {
+  background-color: #2dd4bf;
+  border-color: #2dd4bf;
+}
+
+.roster li.scheme-rin:hover {
+  background-color: #272838;
+  border-color: #272838;
+}
+
+.roster li.scheme-ravia:hover {
+  background-color: #c084fc;
+  border-color: #c084fc;
+}
+
+.roster li.scheme-sukari:hover {
+  background-color: #ffc857;
+  border-color: #ffc857;
+}
+
+.roster li.scheme-remie:hover {
+  background-color: #f564a9;
+  border-color: #f564a9;
+}
+
+.roster li.scheme-bel:hover {
+  background-color: #e55934;
+  border-color: #e55934;
+}
+
+.roster li.scheme-issac:hover :is(h3, p, .colours li),
+.roster li.scheme-mikah:hover :is(h3, p, .colours li),
+.roster li.scheme-joss:hover :is(h3, p, .colours li),
+.roster li.scheme-rin:hover :is(h3, p, .colours li),
+.roster li.scheme-bel:hover :is(h3, p, .colours li) {
+  color: #fff;
+}
+
+.roster li.scheme-juma:hover :is(h3, p, .colours li),
+.roster li.scheme-luga:hover :is(h3, p, .colours li),
+.roster li.scheme-decina:hover :is(h3, p, .colours li),
+.roster li.scheme-ravia:hover :is(h3, p, .colours li),
+.roster li.scheme-sukari:hover :is(h3, p, .colours li),
+.roster li.scheme-remie:hover :is(h3, p, .colours li) {
+  color: #1c1917;
+}
+
+.roster li.scheme-joss:hover h3 span {
+  color: #e2b33a;
+}
+
+.roster li.scheme-juma:hover h3 span {
+  color: #111827;
+}
+
+.roster li.scheme-luga:hover h3 span {
+  color: #8a5a32;
+}
+
+.roster li.scheme-decina:hover h3 span {
+  color: #6b21a8;
+}
+
+.roster li.scheme-ravia:hover h3 span {
+  color: #2e294e;
+}
+
+.roster li.scheme-sukari:hover h3 span {
+  color: #bf1363;
+}
+
+.roster li.scheme-remie:hover h3 span {
+  color: #533b4d;
+}
+
+.roster li.scheme-bel:hover h3 span {
+  color: #fabc2a;
+}
+
+.roster li.scheme-issac::before {
+  background: linear-gradient(
+    90deg,
+    #e11d2e 0 25%,
+    #52525b 25% 50%,
+    #f8fafc 50% 75%,
+    #e2b33a 75% 100%
+  );
+}
+
+.scheme-issac h3 span {
+  color: #e2b33a;
+}
+
+.roster li.scheme-mikah {
+  border-color: #2e1a6b;
+}
+
+.roster li.scheme-mikah::before {
+  background: linear-gradient(
+    90deg,
+    #0a0a0a 0 25%,
+    #e11d2e 25% 50%,
+    #2e1a6b 50% 75%,
+    #f8fafc 75% 100%
+  );
+}
+
+.scheme-mikah h3 span {
+  color: #e11d2e;
+}
+
+.roster li.scheme-joss {
+  border-color: #2563eb;
+}
+
+.roster li.scheme-joss::before {
+  background: linear-gradient(
+    90deg,
+    #2563eb 0 25%,
+    #e11d2e 25% 50%,
+    #f8fafc 50% 75%,
+    #e2b33a 75% 100%
+  );
+}
+
+.scheme-joss h3 span {
+  color: #2563eb;
+}
+
+.roster li.scheme-juma {
+  border-color: #f97316;
+}
+
+.roster li.scheme-juma::before {
+  background: linear-gradient(
+    90deg,
+    #f97316 0 25%,
+    #d4d4d8 25% 50%,
+    #0a0a0a 50% 75%,
+    #f8fafc 75% 100%
+  );
+}
+
+.roster li.scheme-juma::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    #a855f7 0 33.33%,
+    #2563eb 33.33% 66.66%,
+    #facc15 66.66% 100%
+  );
+}
+
+.scheme-juma h3 span {
+  color: #f97316;
+}
+
+.roster li.scheme-luga {
+  border-color: #22c55e;
+}
+
+.roster li.scheme-luga::before {
+  background: linear-gradient(
+    90deg,
+    #22c55e 0 25%,
+    #facc15 25% 50%,
+    #8a5a32 50% 75%,
+    #e7d3b0 75% 100%
+  );
+}
+
+.scheme-luga h3 span {
+  color: #22c55e;
+}
+
+.roster li.scheme-decina {
+  border-color: #2dd4bf;
+}
+
+.roster li.scheme-decina::before {
+  background: linear-gradient(
+    90deg,
+    #2dd4bf 0 25%,
+    #e2b33a 25% 50%,
+    #e7d3b0 50% 75%,
+    #c084fc 75% 100%
+  );
+}
+
+.scheme-decina h3 span {
+  color: #2dd4bf;
+}
+
+.roster li.scheme-rin {
+  border-color: #272838;
+}
+
+.roster li.scheme-rin::before {
+  background: linear-gradient(
+    90deg,
+    #272838 0 25%,
+    #ff1053 25% 50%,
+    #f9f8f8 50% 75%,
+    #f3de8a 75% 100%
+  );
+}
+
+.scheme-rin h3 span {
+  color: #ff1053;
+}
+
+.swatch-shadow-grey {
+  background: #272838;
+}
+
+.swatch-sweet-salmon {
+  background: #ff1053;
+}
+
+.swatch-bright-snow {
+  background: #f9f8f8;
+}
+
+.swatch-light-gold {
+  background: #f3de8a;
+}
+
+.roster li.scheme-ravia {
+  border-color: #c084fc;
+}
+
+.roster li.scheme-ravia::before {
+  background: linear-gradient(
+    90deg,
+    #c084fc 0 25%,
+    #f8fafc 25% 50%,
+    #2e294e 50% 75%,
+    #efbcd5 75% 100%
+  );
+}
+
+.scheme-ravia h3 span {
+  color: #c084fc;
+}
+
+.roster li.scheme-sukari {
+  border-color: #ffc857;
+}
+
+.roster li.scheme-sukari::before {
+  background: linear-gradient(
+    90deg,
+    #ffc857 0 25%,
+    #bf1363 25% 50%,
+    #efa7a7 50% 75%,
+    #a7e8bd 75% 100%
+  );
+}
+
+.scheme-sukari h3 span {
+  color: #ffc857;
+}
+
+.swatch-golden-pollen {
+  background: #ffc857;
+}
+
+.swatch-rosewood {
+  background: #bf1363;
+}
+
+.swatch-powder-blush {
+  background: #efa7a7;
+}
+
+.swatch-celadon {
+  background: #a7e8bd;
+}
+
+.roster li.scheme-remie {
+  border-color: #f564a9;
+}
+
+.roster li.scheme-remie::before {
+  background: linear-gradient(
+    90deg,
+    #f564a9 0 25%,
+    #faa4bd 25% 50%,
+    #fae3c6 50% 75%,
+    #533b4d 75% 100%
+  );
+}
+
+.scheme-remie h3 span {
+  color: #f564a9;
+}
+
+.swatch-hot-pink {
+  background: #f564a9;
+}
+
+.swatch-pink-mist {
+  background: #faa4bd;
+}
+
+.swatch-champagne-mist {
+  background: #fae3c6;
+}
+
+.swatch-mauve-shadow {
+  background: #533b4d;
+}
+
+.roster li.scheme-bel {
+  border-color: #e55934;
+}
+
+.roster li.scheme-bel::before {
+  background: linear-gradient(
+    90deg,
+    #e55934 0 25%,
+    #031a6b 25% 50%,
+    #5bc0eb 50% 75%,
+    #fabc2a 75% 100%
+  );
+}
+
+.scheme-bel h3 span {
+  color: #e55934;
+}
+
+.swatch-fiery-terracotta {
+  background: #e55934;
+}
+
+.swatch-deep-twilight {
+  background: #031a6b;
+}
+
+.swatch-sky-surge {
+  background: #5bc0eb;
+}
+
+.swatch-amber-flame {
+  background: #fabc2a;
 }

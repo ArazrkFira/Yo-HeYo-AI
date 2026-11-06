@@ -1,5 +1,5 @@
-const greeting = document.getElementById("greeting");
+const title = document.getElementById("title");
 
-if (greeting) {
-  greeting.textContent = "Hello World";
+if (title) {
+  document.title = title.textContent;
 }
