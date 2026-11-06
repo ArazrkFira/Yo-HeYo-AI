@@ -248,8 +248,7 @@ h3 span {
   border-color: #3f3f46;
 }
 
-.roster li.scheme-issac,
-.roster li.scheme-mikah {
+.roster li.expandable {
   cursor: pointer;
 }
 
@@ -272,7 +271,7 @@ body.profile-open {
 
 .roster li.is-open,
 .roster li.is-open:hover,
-.roster li.scheme-mikah.is-open:hover {
+.roster li[class*="scheme-"].is-open:hover {
   position: fixed;
   z-index: 21;
   inset: 6vh 5vw;
@@ -457,6 +456,76 @@ body.profile-open {
 
 .roster li.scheme-bel:hover h3 span {
   color: #fabc2a;
+}
+
+.roster li.is-open h3,
+.roster li.is-open:hover h3,
+.roster li[class*="scheme-"].is-open:hover h3 {
+  color: #e2e8f0;
+}
+
+.roster li.is-open .profile-copy > p,
+.roster li.is-open:hover .profile-copy > p,
+.roster li.is-open .colours li,
+.roster li.is-open:hover .colours li,
+.roster li[class*="scheme-"].is-open:hover .profile-copy > p,
+.roster li[class*="scheme-"].is-open:hover .colours li {
+  color: #cbd5e1;
+}
+
+.roster li.is-open.scheme-issac h3 span,
+.roster li.is-open.scheme-issac:hover h3 span {
+  color: #e2b33a;
+}
+
+.roster li.is-open.scheme-mikah h3 span,
+.roster li.is-open.scheme-mikah:hover h3 span {
+  color: #e11d2e;
+}
+
+.roster li.is-open.scheme-joss h3 span,
+.roster li.is-open.scheme-joss:hover h3 span {
+  color: #2563eb;
+}
+
+.roster li.is-open.scheme-juma h3 span,
+.roster li.is-open.scheme-juma:hover h3 span {
+  color: #f97316;
+}
+
+.roster li.is-open.scheme-luga h3 span,
+.roster li.is-open.scheme-luga:hover h3 span {
+  color: #22c55e;
+}
+
+.roster li.is-open.scheme-decina h3 span,
+.roster li.is-open.scheme-decina:hover h3 span {
+  color: #2dd4bf;
+}
+
+.roster li.is-open.scheme-rin h3 span,
+.roster li.is-open.scheme-rin:hover h3 span {
+  color: #ff1053;
+}
+
+.roster li.is-open.scheme-ravia h3 span,
+.roster li.is-open.scheme-ravia:hover h3 span {
+  color: #c084fc;
+}
+
+.roster li.is-open.scheme-sukari h3 span,
+.roster li.is-open.scheme-sukari:hover h3 span {
+  color: #ffc857;
+}
+
+.roster li.is-open.scheme-remie h3 span,
+.roster li.is-open.scheme-remie:hover h3 span {
+  color: #f564a9;
+}
+
+.roster li.is-open.scheme-bel h3 span,
+.roster li.is-open.scheme-bel:hover h3 span {
+  color: #e55934;
 }
 
 .roster li.scheme-issac::before {
