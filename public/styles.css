@@ -10,10 +10,44 @@ body {
   color: #e2e8f0;
 }
 
+.page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 42vw);
+  align-items: start;
+}
+
 main {
   width: min(40rem, 100%);
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: 2rem;
   padding: 3rem 1.5rem 4rem;
+}
+
+.page-art {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 1.5rem;
+  pointer-events: none;
+  user-select: none;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 12%);
+}
+
+@media (max-width: 800px) {
+  .page {
+    grid-template-columns: minmax(0, 1fr) minmax(7.5rem, 38vw);
+  }
+
+  main {
+    margin-right: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+  }
+
+  .page-art {
+    margin-top: 0.75rem;
+  }
 }
 
 .eyebrow {
